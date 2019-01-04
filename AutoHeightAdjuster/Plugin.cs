@@ -24,7 +24,7 @@ namespace BeatSaberAutoHeightAdjuster
         private void SceneManager_sceneLoaded(Scene newScene, LoadSceneMode arg1)
         {
             Log("Scene Change");
-            if (newScene.name != "Menu")
+            if (newScene.name == "GameCore")
             {
                 Log("Measure player height");
                 var mainSettingModel = Resources.FindObjectsOfTypeAll<MainSettingsModel>().FirstOrDefault();
