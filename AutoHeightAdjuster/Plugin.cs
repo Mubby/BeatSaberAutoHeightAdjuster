@@ -10,8 +10,8 @@ namespace BeatSaberAutoHeightAdjuster
     public class Plugin : IPlugin
     {
         public string Name => "AutoHeightAdjuster";
-        public string Version => "0.0.1";
-        private const string GameSceneName = "StandardLevel";
+        public string Version => "0.0.2";
+        private const string GameSceneName = "GameCore";
         private bool _init;
 
         public void OnApplicationStart()
@@ -23,8 +23,8 @@ namespace BeatSaberAutoHeightAdjuster
 
         private void SceneManager_sceneLoaded(Scene newScene, LoadSceneMode arg1)
         {
-            Log("Scene Change");
-            if (newScene.name == "GameCore")
+            Log("Scene Change " + newScene.name ?? "No name");
+            if (newScene.name == GameSceneName)
             {
                 Log("Measure player height");
                 var mainSettingModel = Resources.FindObjectsOfTypeAll<MainSettingsModel>().FirstOrDefault();
